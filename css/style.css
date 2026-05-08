@@ -513,3 +513,49 @@ body {
   transform: translateX(-50%) scale(1);
   top: -1.8rem;
 }
+
+/* *********************** */
+/* MOBILE WARNING MESSAGE */
+/* *********************** */
+
+/* Hide message by default */
+body::before {
+  content: "";
+  display: none;
+}
+
+/* Show warning message on mobile screens */
+@media (max-width: 1085px) {
+  body::before {
+    content: "This website is not optimized for mobile devices. Please view on a desktop or laptop for the best experience.";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-color);
+    color: var(--white-color);
+    font-size: 1.1rem;
+    padding: 2rem;
+    z-index: 9999;
+    line-height: 1.8;
+    box-sizing: border-box;
+  }
+
+  .wrapper {
+    display: none !important;
+  }
+}
+
+/* Smaller mobile screens */
+@media (max-width: 480px) {
+  body::before {
+    font-size: 0.95rem;
+    padding: 1.5rem;
+    line-height: 1.6;
+  }
+}
